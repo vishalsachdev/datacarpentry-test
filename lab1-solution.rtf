@@ -1,0 +1,59 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;\red34\green45\blue53;\red255\green255\blue255;\red34\green45\blue53;
+}
+{\*\expandedcolortbl;;\cssrgb\c17647\c23137\c27059;\cssrgb\c100000\c100000\c100000;\cssrgb\c17647\c23137\c27059;
+}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f0\fs32 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 1. (two queries) What is\'a0 the employee number of Mr. Williams, and how many employees does he manage? (EMP_NUM, EMP_LNAME, EMP_MGR)\
+\
+\pard\pardeftab720\sl360\sa240\partightenfactor0
+\cf4 \cb3 \outl0\strokewidth0 1.\'a0SELECT EMP_NUM FROM sales.EMP WHERE EMP_LNAME = 'Williams';\
+SELECT COUNT(*) as NumofEmployees FROM sales.EMP WHERE EMP_MGR = 105;\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb3 \outl0\strokewidth0 \strokec2 \
+\
+2. Which employees does not have a manager, i.e., his manager value is NULL? (use IS NULL, EMP_MGR)\
+\pard\pardeftab720\sl360\sa240\partightenfactor0
+\cf4 \cb3 \outl0\strokewidth0 \
+2.\'a0SELECT EMP_FNAME, EMP_LNAME FROM sales.EMP WHERE EMP_MGR IS NULL;\cf2 \cb3 \outl0\strokewidth0 \strokec2 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 3.(two queries)\'a0How many male employees, and how many female employees are in this company? (EMP_TITLE, Ms. , Mrs,  Mr.)\
+\pard\pardeftab720\sl360\sa240\partightenfactor0
+\cf4 \cb3 \outl0\strokewidth0 \
+SELECT COUNT(*) FROM sales.EMP WHERE EMP_TITLE = 'Ms.' OR EMP_TITLE = 'Mrs.';\
+SELECT COUNT(*) FROM sales.EMP WHERE EMP_TITLE = 'Mr.';\
+\cf2 \cb3 \outl0\strokewidth0 \strokec2 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 4.(two queries)\'a0How many vendors are there in all , and how many vendors are located in the state of GA? (V_STATE)\
+\
+\pard\pardeftab720\sl360\sa240\partightenfactor0
+\cf4 \cb3 \outl0\strokewidth0 4.\'a0SELECT COUNT(*) FROM sales.VENDOR;\
+SELECT COUNT(*) FROM sales.VENDOR WHERE V_STATE = 'GA';\cf2 \cb3 \outl0\strokewidth0 \strokec2 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \
+5. List all products that vendor 24288 supplies. (V_CODE)\
+\
+\pard\pardeftab720\sl360\sa240\partightenfactor0
+\cf4 \cb3 \outl0\strokewidth0 5.\'a0SELECT P_DESCRIPT FROM sales.PRODUCT WHERE V_CODE = 24288;\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb3 \outl0\strokewidth0 \strokec2 \
+6. You vaguely recall that the name of a vendor starts with the letter B.\'a0 Can you list all vendors whose name starts with the letter B? (V_NAME, use LIKE)\
+\pard\pardeftab720\sl360\sa240\partightenfactor0
+\cf4 \cb3 \outl0\strokewidth0 6.\'a0SELECT V_NAME FROM sales.VENDOR WHERE V_NAME LIKE 'B%';\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb3 \outl0\strokewidth0 \strokec2 \
+7. List all vendors who are located in either GA or FL. (use logic operator IN)\
+\pard\pardeftab720\sl360\sa240\partightenfactor0
+\cf4 \cb3 \outl0\strokewidth0 7.\'a0SELECT V_NAME FROM sales.VENDOR WHERE V_STATE IN ('GA', 'FL');\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf2 \cb3 \outl0\strokewidth0 \strokec2 \
+8 . What\'92s the phone number of vendor \'91DOME Supply\'92? (V_PHONE, V_NAME)\
+\pard\pardeftab720\sl360\sa240\partightenfactor0
+\cf2 \
+8.\'a0SELECT \cf4 \cb3 \outl0\strokewidth0 V_AREACODE, \cf2 \cb3 \outl0\strokewidth0 \strokec2 V_PHONE,  FROM sales.VENDOR WHERE V_NAME = 'DOME Supply';\
+}
